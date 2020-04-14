@@ -1,8 +1,21 @@
-export default function createUser(
+interface TechObject {
+    title: string;
+    experience: number;
+}
+
+interface CreateUserData {
+    name?: string;
+    email: string;
+    password: string;
+    //techs: string[];
+    techs: Array<string | TechObject>;
+}
+
+export default function createUser({ 
         name = '',
-        email: string,
-        password: string
-    ) {
+        email,
+        password
+    }: CreateUserData) {
     const user = {
         name,
         email,
